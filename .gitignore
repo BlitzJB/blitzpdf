@@ -1,4 +1,1 @@
-node_modules/
-dist/
-*.pdf
-.env
+node_modules

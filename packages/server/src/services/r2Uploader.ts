@@ -32,6 +32,7 @@ export class R2Uploader {
             Bucket: this.bucketName,
             Key: key,
             Body: buffer,
+            ContentType: 'application/pdf',
         });
 
         await this.client.send(command);
