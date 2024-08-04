@@ -1,0 +1,52 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Dynamic PDF generator with React and Tailwind CSS",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/app.ts",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.623.0",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "autoprefixer": "^10.4.14",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "pdf-parse": "^1.1.1",
+    "postcss": "^8.4.24",
+    "puppeteer": "^20.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/babel__core": "^7.20.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.3.1",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "jest": "^29.7.0",
+    "msw": "^2.3.5",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
