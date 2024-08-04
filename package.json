@@ -1,28 +1,31 @@
 {
-  "name": "blitzpdf",
+  "name": "my-pdf-generator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Dynamic PDF generator with React and Tailwind CSS",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./styles.css -o ./styles.output.css"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "nunjucks": "^3.2.4",
-    "puppeteer": "^22.15.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "puppeteer": "^20.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/node": "^7.25.0",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/preset-react": "^7.24.7",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.40",
-    "tailwindcss": "^3.4.7"
+    "@types/babel__core": "^7.20.1",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
   }
 }
