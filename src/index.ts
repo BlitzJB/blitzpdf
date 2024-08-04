@@ -10,4 +10,6 @@ const data = {
     items: ["Dynamic Item 1", "Dynamic Item 2", "Dynamic Item 3"]
 };
 
-generatePDF(componentString, data);
+generatePDF(componentString, data).then((url) => {
+    console.log('PDF URL:', url);
+})
