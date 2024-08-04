@@ -61,6 +61,7 @@ graph TD
 ## 🖥 Live Demo
 
 Experience BlitzPDF in action: [BlitzPDF Demo](https://blitzpdf.blitzdnd.com)
+BlitzPDF SwaggerUI (Intentionally made available in prod): [BlitzPDF Swagger](https://api-blitzpdf.blitzdnd.com/api-docs)
 
 ## 🛡 Security
 
