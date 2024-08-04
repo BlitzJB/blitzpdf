@@ -1,0 +1,16 @@
+{
+    "name": "blitzpdf-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:server": "pnpm --filter server run dev",
+        "dev:web": "pnpm --filter web run dev",
+        "dev": "concurrently \"pnpm run dev:server\" \"pnpm run dev:web\""
+    },
+    "devDependencies": {
+        "concurrently": "^6.4.0"
+    }
+}
