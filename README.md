@@ -1,3 +1,16 @@
+### Testing Script
+```bash
+curl -X 'POST' \
+  'http://localhost:3000/api/pdf' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "componentString": "import React from '\''react'\''; const ListItem = ({ children }) => ( <li className='\''mb-2 text-red-500'\''>{children}</li> ); const PDFDocument = ({ title, content, items }) => ( <html> <head> <style id='\''tailwind-css'\''></style> </head> <body> <div className='\''p-8'\''> <h1 className='\''text-2xl font-bold mb-4'\''>{title}</h1> <p className='\''mb-4'\''>{content}</p> <ul className='\''list-disc pl-5'\''> {items.map((item, index) => ( <ListItem key={index}>{item}</ListItem> ))} </ul> </div> </body> </html> ); export default PDFDocument;",
+  "data": { "title": "Welcome to Our Dynamic PDF", "content": "This PDF is generated with a dynamically loaded React component and Tailwind CSS.", "items": ["Dynamic Item 1", "Dynamic Item 2", "Dynamic Item 3"] },
+  "tailwindConfig": {}
+}'
+```
+
 # Project Source Description
 ```
 blitzpdf/

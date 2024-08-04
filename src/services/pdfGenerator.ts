@@ -7,14 +7,14 @@ import { R2Uploader } from './r2Uploader';
 import dotenv from 'dotenv';
 dotenv.config();
 
-export async function generatePDF(componentString: string, data: Record<string, any>): Promise<string> {
+export async function generatePDF(componentString: string, data: Record<string, any>, tailwindConfig: Record<string, any> = {}): Promise<string> {
     const PDFDocument = evalComponent(componentString);
 
     const html = ReactDOMServer.renderToString(
         React.createElement(PDFDocument, data)
     );
 
-    const css = await buildTailwindCSS(html);
+    const css = await buildTailwindCSS(html, tailwindConfig);
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
