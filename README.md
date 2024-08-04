@@ -1,4 +1,7 @@
-# BlitzPDF: Pioneering React-Based PDF Generation with Tailwind CSS
+# BlitzPDF: PDF Generation API with Plain React and TailwindCSS
+
+> `react-pdf` exists. Why should i use `BlitzPDF`?
+> While `react-pdf` uses its own "dialect" of react by having purpose specific components like `<Page>`, etc, and doesn't have inbuilt support for tailwind, In most usecases, you'd just want to build PDFs with plain old react components and tailwind css. This is where BlitzPDF comes in.
 
 ![BlitzPDF Logo](https://your-image-url.com/blitzpdf-logo.png)
 
