@@ -7,11 +7,24 @@ import { R2Uploader } from './r2Uploader';
 import dotenv from 'dotenv';
 dotenv.config();
 
+function WrapperComponent({ children }: { children: React.ReactNode }) {
+    return <html>
+        <head>
+            <style id="tailwind-css"></style>
+        </head>
+        <body>
+            {children}
+        </body>
+    </html>
+}
+
 export async function generatePDF(componentString: string, data: Record<string, any>, tailwindConfig: Record<string, any> = {}): Promise<string> {
     const PDFDocument = evalComponent(componentString);
 
-    const html = ReactDOMServer.renderToString(
-        React.createElement(PDFDocument, data)
+    const html = ReactDOMServer.renderToStaticMarkup(
+        <WrapperComponent>
+            <PDFDocument {...data} />
+        </WrapperComponent>
     );
 
     const css = await buildTailwindCSS(html, tailwindConfig);
