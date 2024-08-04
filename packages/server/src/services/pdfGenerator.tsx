@@ -27,6 +27,8 @@ export async function generatePDF(componentString: string, data: Record<string, 
         </WrapperComponent>
     );
 
+    console.log('HTML generated ', html);
+
     const css = await buildTailwindCSS(html, tailwindConfig);
 
     const browser = await puppeteer.launch();
