@@ -1,62 +1,104 @@
-### Swagger UI found at 
-`http://localhost:3000/api-docs`
+# BlitzPDF: PDF Generation API with Plain React and TailwindCSS
 
-### Testing Command
-```bash
-curl -X 'POST' \
-  'http://localhost:3000/api/pdf' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "componentString": "import React from '\''react'\''; const ListItem = ({ children }) => ( <li className='\''mb-2 text-red-500'\''>{children}</li> ); const PDFDocument = ({ title, content, items }) => ( <html> <head> <style id='\''tailwind-css'\''></style> </head> <body> <div className='\''p-8'\''> <h1 className='\''text-2xl font-bold mb-4'\''>{title}</h1> <p className='\''mb-4'\''>{content}</p> <ul className='\''list-disc pl-5'\''> {items.map((item, index) => ( <ListItem key={index}>{item}</ListItem> ))} </ul> </div> </body> </html> ); export default PDFDocument;",
-  "data": { "title": "Welcome to Our Dynamic PDF", "content": "This PDF is generated with a dynamically loaded React component and Tailwind CSS.", "items": ["Dynamic Item 1", "Dynamic Item 2", "Dynamic Item 3"] },
-  "tailwindConfig": {}
-}'
+> `react-pdf` exists. Why should i use `BlitzPDF`?
+> While `react-pdf` uses its own "dialect" of react by having purpose specific components like `<Page>`, etc, and doesn't have inbuilt support for tailwind, In most usecases, you'd just want to build PDFs with plain old react components and tailwind css. This is where BlitzPDF comes in.
+
+<img width="1440" alt="Screenshot of Demo of BlitzPDF" src="https://github.com/user-attachments/assets/50b78f92-020c-4259-8ccb-cc295f51af1a">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+BlitzPDF is a groundbreaking PDF generation service that harnesses the power of React and Tailwind CSS to create customizable PDFs on-the-fly. This innovative approach offers unparalleled flexibility for developers integrating PDF generation capabilities into their applications.
+
+## 🚀 Key Features
+
+- **React-Powered PDF Generation**: Utilize standard React components to design your PDFs without syntax convolution.
+- **Tailwind CSS Integration**: Leverage Tailwind CSS for rapid, consistent styling across your PDFs.
+- **Real-Time Preview**: Instant PDF previews as you edit your React components and data.
+- **Multi-Language API Support**: Generate API requests in JavaScript, Python, Java, and cURL with a single click.
+- **Cloudflare R2 Integration**: Efficient storage and retrieval of generated PDFs.
+
+## 🛠 Technical Stack
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Node.js, Express
+- **PDF Generation**: Puppeteer
+- **Code Editing**: Monaco Editor
+- **State Management**: React Hooks
+- **API Integration**: Axios
+- **Cloud Storage**: Cloudflare R2
+
+## 🏗 Current Architecture
+
+BlitzPDF currently operates as a monolithic application:
+
+```mermaid
+graph TD
+    A[Client] -->|React Component + Data| B(Express Server)
+    B --> C[PDF Generation Service]
+    C --> D[Cloudflare R2 Storage]
+    D --> A
 ```
 
-# Project Source Description
-```
-blitzpdf/
-├── src/
-│   ├── services/
-│   │   ├── cssBuilder.ts
-│   │   ├── componentEvaluator.ts
-│   │   └── pdfGenerator.ts
-│   ├── utils/
-│   │   └── sandbox.ts
-│   ├── types/
-│   │   └── index.ts
-│   └── index.ts
-├── assets/
-│   └── PDFDocument.tsx
-├── package.json
-├── tsconfig.json
-└── .gitignore
-```
+## 🚀 Quick Start
 
-`src/index.ts`
-Entry point of the application that reads the component file and initiates the PDF generation process.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/blitzpdf.git
+   ```
 
-`src/services/pdfGenerator.ts`
-Orchestrates the PDF generation process, including component evaluation, HTML rendering, and PDF creation.
-* Uses Puppeteer for high-fidelity rendering of web content to PDF
-* Integrates various services (CSS building, component evaluation) into a cohesive process
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-`src/services/cssBuilder.ts`
-Builds Tailwind CSS dynamically based on the content of the React component.
-* Allows for on-the-fly Tailwind CSS generation without a static configuration
-* Adaptable to any incoming component, regardless of its structure or classes used
+3. Start the development server:
+   ```bash
+   pnpm run dev
+   ```
 
-`src/services/componentEvaluator.ts`
-Evaluates the string representation of a React component into a usable component.
-* Uses Babel for transpilation of JSX and modern JavaScript features
-* Employs a sandboxed environment for secure evaluation of potentially untrusted code
+4. Visit `http://localhost:3000` to start creating PDFs!
 
-`src/utils/sandbox.ts`
-Creates a sandbox environment for safe code execution.
-* Provides a controlled environment with limited access to global objects
-* Enhances security when evaluating external code by restricting available APIs
+## 🖥 Live Demo
 
-`assets/PDFDocument.tsx`
-A sample React component used to generate the PDF content.
-* Stored as an asset to simulate an external, dynamically loaded component
+Experience BlitzPDF in action: [BlitzPDF Demo](https://blitzpdf.blitzdnd.com)
+
+## 🛡 Security
+
+While formal security audits have not yet been conducted, BlitzPDF implements the following security measures:
+
+- User-provided React components are executed in a controlled environment.
+- Basic input validation is performed to mitigate common security risks.
+
+Enhancing security measures is a key priority for future development.
+
+## 🌐 API Reference
+
+API documentation is available via Swagger UI at `http://localhost:5000/api-docs` when running the server locally.
+
+## 🔮 Future Scope
+
+We have exciting plans for the future of BlitzPDF:
+
+1. **Containerization**: Implement Docker for easier deployment and scaling.
+2. **Microservices Architecture**: Transition from monolithic to microservices architecture for improved scalability and maintainability.
+3. **Serverless Deployment**: Adapt the application for serverless environments to enhance scalability and cost-efficiency.
+4. **Performance Optimization**: Implement caching, parallel processing, and other optimizations to improve PDF generation speed and overall system performance.
+5. **Cloud-Native Architecture**: Redesign the application to fully leverage cloud services for improved resilience and scalability.
+6. **Comprehensive Security Audit**: Conduct thorough security assessments and implement advanced security measures.
+7. **Expanded API Documentation**: Develop comprehensive, interactive API documentation.
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
+
+## 📜 License
+
+BlitzPDF is MIT licensed. See [LICENSE](LICENSE) for more information.
+
+## 📬 Contact
+
+For support or inquiries, please contact us at contact@blitzdnd.com
+
+---
+
+Built with ❤️ by BlitzJB
