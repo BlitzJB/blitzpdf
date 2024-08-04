@@ -1,4 +1,7 @@
-### Testing Script
+### Swagger UI found at 
+`http://localhost:3000/api-docs`
+
+### Testing Command
 ```bash
 curl -X 'POST' \
   'http://localhost:3000/api/pdf' \
