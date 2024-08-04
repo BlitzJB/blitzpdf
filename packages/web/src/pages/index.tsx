@@ -5,7 +5,7 @@ import axios from 'axios';
 import debounce from 'lodash/debounce';
 import { Copy } from 'lucide-react';
 
-const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5010' : 'https://api-blitzpdf.blitzdnd.com';
+const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5010/api/pdf' : 'https://api-blitzpdf.blitzdnd.com/api/pdf';
 
 const MonacoEditor = dynamic(import('@monaco-editor/react'), { ssr: false });
 
