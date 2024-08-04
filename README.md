@@ -9,6 +9,12 @@
 
 BlitzPDF is a groundbreaking PDF generation service that harnesses the power of React and Tailwind CSS to create customizable PDFs on-the-fly. This innovative approach offers unparalleled flexibility for developers integrating PDF generation capabilities into their applications.
 
+## 🖥 Live Demo
+
+Experience BlitzPDF in action: [BlitzPDF Demo](https://blitzpdf.blitzdnd.com)
+
+BlitzPDF SwaggerUI (Intentionally made available in prod): [BlitzPDF Swagger](https://api-blitzpdf.blitzdnd.com/api-docs)
+
 ## 🚀 Key Features
 
 - **React-Powered PDF Generation**: Utilize standard React components to design your PDFs without syntax convolution.
@@ -57,12 +63,6 @@ graph TD
    ```
 
 4. Visit `http://localhost:3000` to start creating PDFs!
-
-## 🖥 Live Demo
-
-Experience BlitzPDF in action: [BlitzPDF Demo](https://blitzpdf.blitzdnd.com)
-
-BlitzPDF SwaggerUI (Intentionally made available in prod): [BlitzPDF Swagger](https://api-blitzpdf.blitzdnd.com/api-docs)
 
 ## 🛡 Security
 
