@@ -5,6 +5,8 @@ import axios from 'axios';
 import debounce from 'lodash/debounce';
 import { Copy } from 'lucide-react';
 
+const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:5010' : 'https://api-blitzpdf.blitzdnd.com';
+
 const MonacoEditor = dynamic(import('@monaco-editor/react'), { ssr: false });
 
 const CopyButton = ({ onClick }: { onClick: () => void }) => (
@@ -51,7 +53,7 @@ const Modal = ({ isOpen, onClose, language, data, code }: { isOpen: boolean, onC
 
   const getRequestCode = (lang: string, data: string, code: string) => {
     const parsedData = JSON.parse(data);
-    const url = 'https://api.blitzpdf.blitzdnd.com/api/pdf';
+    const url = API_URL;
     
     switch (lang.toLowerCase()) {
       case 'javascript':
@@ -224,7 +226,7 @@ export default InvitationTicket;`);
     setIsGenerating(true);
     try {
       const parsedData = JSON.parse(jsonData);
-      const response = await axios.post('http://localhost:5010/api/pdf', {
+      const response = await axios.post(API_URL, {
         componentString,
         data: parsedData,
       });
