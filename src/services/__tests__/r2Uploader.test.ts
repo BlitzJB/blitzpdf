@@ -43,6 +43,6 @@ describe('R2Uploader', () => {
 
         const result = await uploader.uploadBuffer(mockBuffer, mockKey);
 
-        expect(result).toBe(`https://${mockConfig.bucketName}.${mockConfig.domainName}/${mockKey}`);
+        expect(result).toBe(`https://${mockConfig.domainName}/${mockKey}`);
     });
 });

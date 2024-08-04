@@ -12,7 +12,7 @@ export interface R2Config {
 export class R2Uploader {
     private client: S3Client;
     private bucketName: string;
-    private domainName = "r2.cloudflarestorage.com";
+    private domainName: string;
 
     constructor(config: R2Config) {
         this.client = new S3Client({
@@ -24,7 +24,7 @@ export class R2Uploader {
             },
         });
         this.bucketName = config.bucketName;
-        this.domainName = config && config.domainName ? config.domainName : this.domainName;
+        this.domainName = config && config.domainName ? config.domainName : `${config.bucketName}.${config.accountId}.r2.cf`;
     }
 
     async uploadBuffer(buffer: Buffer, key: string): Promise<string> {
@@ -35,6 +35,6 @@ export class R2Uploader {
         });
 
         await this.client.send(command);
-        return `https://${this.bucketName}.${this.domainName}/${key}`;
+        return `https://${this.domainName}/${key}`;
     }
 }
