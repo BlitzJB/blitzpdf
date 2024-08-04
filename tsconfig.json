@@ -12,13 +12,17 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./dist",
         "rootDir": "./src",
-        "jsx": "react"
+        "jsx": "react",
+        "types": [
+            "jest",
+            "node"
+        ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "__tests__/**/*"
     ],
     "exclude": [
-        "node_modules",
-        "**/*.spec.ts"
+        "node_modules"
     ]
 }

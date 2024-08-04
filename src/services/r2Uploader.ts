@@ -1,7 +1,7 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 
-interface R2Config {
+export interface R2Config {
     bucketName: string;
     accessKeyId: string;
     secretAccessKey: string;
