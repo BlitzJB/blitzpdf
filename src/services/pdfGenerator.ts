@@ -3,8 +3,11 @@ import ReactDOMServer from 'react-dom/server';
 import puppeteer from 'puppeteer';
 import { buildTailwindCSS } from './cssBuilder';
 import { evalComponent } from './componentEvaluator';
+import { R2Uploader } from './r2Uploader';
+import dotenv from 'dotenv';
+dotenv.config();
 
-export async function generatePDF(componentString: string, data: Record<string, any>): Promise<void> {
+export async function generatePDF(componentString: string, data: Record<string, any>): Promise<string> {
     const PDFDocument = evalComponent(componentString);
 
     const html = ReactDOMServer.renderToString(
@@ -25,9 +28,26 @@ export async function generatePDF(componentString: string, data: Record<string, 
         }
     }, css);
 
-    await page.pdf({ path: 'react-tailwind-output.pdf', format: 'A4' });
+    const pdfBuffer = await page.pdf({ format: 'A4' });
 
     await browser.close();
 
     console.log('PDF generated successfully!');
+
+    const r2Config = {
+        bucketName: process.env.R2_BUCKET_NAME!,
+        accessKeyId: process.env.R2_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
+        accountId: process.env.R2_ACCOUNT_ID!,
+        domainName: process.env.R2_DOMAIN_NAME
+    }
+
+    const uploader = new R2Uploader(r2Config);
+
+    const key = `pdf_${Date.now()}.pdf`;
+    const url = await uploader.uploadBuffer(pdfBuffer, key);
+
+    console.log('PDF uploaded successfully:', url);
+
+    return url;
 }
