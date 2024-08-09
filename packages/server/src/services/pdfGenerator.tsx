@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import puppeteer from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer';
 import { buildTailwindCSS } from './cssBuilder';
 import { evalComponent } from './componentEvaluator';
 import { R2Uploader } from './r2Uploader';
@@ -18,6 +18,9 @@ function WrapperComponent({ children }: { children: React.ReactNode }) {
     </html>
 }
 
+// Singleton instance of the puppeteer browser
+let browserInstance: Browser | null = null;
+
 export async function generatePDF(componentString: string, data: Record<string, any>, tailwindConfig: Record<string, any> = {}): Promise<string> {
     const PDFDocument = evalComponent(componentString);
 
@@ -31,7 +34,9 @@ export async function generatePDF(componentString: string, data: Record<string, 
 
     const css = await buildTailwindCSS(html, tailwindConfig);
 
-    const browser = await puppeteer.launch();
+    // Get or create the puppeteer browser instance
+    const browser = await getPuppeteerBrowser();
+
     const page = await browser.newPage();
 
     await page.setContent(html);
@@ -44,8 +49,6 @@ export async function generatePDF(componentString: string, data: Record<string, 
     }, css);
 
     const pdfBuffer = await page.pdf({ format: 'A4' });
-
-    await browser.close();
 
     console.log('PDF generated successfully!');
 
@@ -65,4 +68,11 @@ export async function generatePDF(componentString: string, data: Record<string, 
     console.log('PDF uploaded successfully:', url);
 
     return url;
+}
+
+async function getPuppeteerBrowser(): Promise<Browser> {
+    if (!browserInstance) {
+        browserInstance = await puppeteer.launch();
+    }
+    return browserInstance;
 }
