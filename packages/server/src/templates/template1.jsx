@@ -85,7 +85,7 @@ const Invoice = ({
 
           <div className="mt-6">
             <div className="border border-gray-200 p-4 rounded-lg space-y-4 dark:border-neutral-700">
-              <div className="hidden sm:grid sm:grid-cols-5 font-medium text-gray-500 dark:text-neutral-500">
+              <div className="grid grid-cols-5 font-medium text-gray-500 dark:text-neutral-500">
                 <div className="col-span-2">Item</div>
                 <div>Qty</div>
                 <div>Unit Price</div>
