@@ -229,14 +229,24 @@ export default InvitationTicket;`);
       const response = await axios.post(API_URL, {
         componentString,
         data: parsedData,
+        upload: false // Set to false to receive buffer instead of URL
+      }, {
+        responseType: 'arraybuffer' // Important: This tells axios to expect binary data
       });
-      setPdfUrl(`/api/pdf-preview?url=${encodeURIComponent(response.data.data.url)}`);
+
+      // Create a Blob from the PDF buffer
+      const blob = new Blob([response.data], { type: 'application/pdf' });
+
+      // Create a URL for the Blob
+      const url = URL.createObjectURL(blob);
+
+      setPdfUrl(url);
     } catch (error) {
       console.error('Error generating PDF:', error);
     } finally {
       setIsGenerating(false);
     }
-  }, 1000), []);
+  }, 250), []);
 
   useEffect(() => {
     generatePDF(code, data);
@@ -339,6 +349,17 @@ export default InvitationTicket;`);
         data={data}
         code={code}
       />
+
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-2">Other Tools:</h2>
+        <ul className="list-disc pl-5">
+          <li>
+            <a href="/test-template" className="text-blue-500 hover:underline">
+              Test Prepared Templates
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

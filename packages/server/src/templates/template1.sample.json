@@ -1,0 +1,90 @@
+{
+  "items": [
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 2500,
+      "totalPrice": 2500
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 4200,
+      "totalPrice": 4200
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 4200,
+      "totalPrice": 4200
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 5300,
+      "totalPrice": 5300
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 5700,
+      "totalPrice": 5700
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 5700,
+      "totalPrice": 5700
+    },
+    {
+      "item": "BESPOKE SHIRT",
+      "qty": 1,
+      "unitPrice": 5300,
+      "totalPrice": 5300
+    },
+    {
+      "item": "BESPOKE TROUSER",
+      "qty": 1,
+      "unitPrice": 4500,
+      "totalPrice": 4500
+    },
+    {
+      "item": "BESPOKE TROUSER",
+      "qty": 1,
+      "unitPrice": 6500,
+      "totalPrice": 6500
+    },
+    {
+      "item": "BESPOKE TROUSER",
+      "qty": 1,
+      "unitPrice": 8000,
+      "totalPrice": 8000
+    },
+    {
+      "item": "BESPOKE TROUSER",
+      "qty": 1,
+      "unitPrice": 6500,
+      "totalPrice": 6500
+    },
+    {
+      "item": "BESPOKE TROUSER",
+      "qty": 1,
+      "unitPrice": 8000,
+      "totalPrice": 8000
+    }
+  ],
+  "advancePaid": 0,
+  "discount": 0,
+  "customer": {
+    "name": "MR. SRIRAM",
+    "phone": "9940338993",
+    "email": "rsriram1968@gmail.com",
+    "gstin": "N/A",
+    "address": "Tambram, Chennai",
+    "jobNo": "N/A"
+  },
+  "paymentMethod": "card",
+  "invoiceNumber": "ST/24-25/S1034",
+  "invoiceDate": "7/31/2024",
+  "trailDate": "7/31/2026"
+}
