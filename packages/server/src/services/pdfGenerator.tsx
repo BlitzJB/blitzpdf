@@ -65,7 +65,10 @@ async function createPageWithRetry(browser: Browser, retries = MAX_RETRIES): Pro
 
 async function recreateBrowserIfNeeded(): Promise<Browser> {
     if (!browserInstance || !browserInstance.isConnected()) {
-        browserInstance = await puppeteer.launch();
+        browserInstance = await puppeteer.launch({
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
     }
     return browserInstance;
 }
@@ -152,7 +155,10 @@ async function uploadToR2(pdfBuffer: Buffer): Promise<string> {
 
 async function getPuppeteerBrowser() {
     if (!browserInstance) {
-        browserInstance = await puppeteer.launch();
+        browserInstance = await puppeteer.launch({
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
     }
     return browserInstance;
 }
