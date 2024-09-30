@@ -109,8 +109,10 @@ const Invoice = ({
               </div>
               <div className="flex justify-between">
                 <span className="font-semibold text-gray-800 dark:text-neutral-200">Total:</span>
-                <span className="text-gray-500 dark:text-neutral-500">Rs. {total.toFixed(2)}</span>
+                <span className="text-gray-500 dark:text-neutral-500 font-bold">Rs. {total.toFixed(2)}</span>
               </div>
+              {/* horizontal line */}
+              <div className="border-t border-gray-200 my-8"></div>
               <div className="flex justify-between">
                 <span className="font-semibold text-gray-800 dark:text-neutral-200">Advance Paid:</span>
                 <span className="text-gray-500 dark:text-neutral-500">Rs. {advancePaid.toFixed(2)}</span>
